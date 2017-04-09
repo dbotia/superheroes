@@ -1,0 +1,33 @@
+<section>
+  <div class="page-header">
+    <h3 ng-bind="vm.superhero.name"></h3>
+  </div>
+
+    <div class="page-content">
+    Superpoder: <h1 ng-bind="vm.superhero.superpower"></h1><br/>
+    Debilidad: <h1 ng-bind="vm.superhero.debilidad"></h1><br/>
+  </div>
+
+
+  <div class="pull-right"
+       ng-show="vm.superhero.isCurrentUserOwner">
+    <a class="btn btn-primary"
+       ui-sref="superheros.edit({ superheroId: vm.superhero._id })">
+      <i class="glyphicon glyphicon-edit"></i>
+    </a>
+    <a class="btn btn-primary" ng-click="vm.remove()">
+      <i class="glyphicon glyphicon-trash"></i>
+    </a>
+  </div>
+  <small>
+    <em class="text-muted">
+      Posted on
+      <span ng-bind="vm.superhero.created | date:'mediumDate'"></span>
+      by
+      <span ng-if="vm.superhero.user"
+            ng-bind="vm.superhero.user.displayName"></span>
+      <span ng-if="!vm.superhero.user">Deleted User</span>
+    </em>
+  </small>
+  <p class="lead" ng-bind="vm.superhero.content"></p>
+</section>

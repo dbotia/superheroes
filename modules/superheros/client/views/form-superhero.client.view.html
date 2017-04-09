@@ -1,0 +1,40 @@
+<section>
+  <div class="page-header">
+    <h1>{{vm.superhero._id ? 'Edit Superhero' : 'New Superhero'}}</h1>
+  </div>
+  <div class="col-md-12">
+    <form name="vm.form.superheroForm" class="form-horizontal" ng-submit="vm.save(vm.form.superheroForm.$valid)" novalidate>
+      <fieldset>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="name">Name</label>
+          <input name="name" type="text" ng-model="vm.superhero.name" id="name" class="form-control" placeholder="Name" required>
+          <div ng-messages="vm.form.superheroForm.name.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Superhero name is required.</p>
+          </div>
+
+<label class="control-label" for="superpower">Superpoder</label>
+          <input name="superpower" type="text" ng-model="vm.superhero.superpower" id="superpower" class="form-control" placeholder="Superpower" required>
+          <div ng-messages="vm.form.superheroForm.name.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Superpower name is required.</p>
+          </div>
+
+          <label class="control-label" for="debilidad">Debilidad</label>
+          <input name="debilidad" type="text" ng-model="vm.superhero.debilidad" id="debilidad" class="form-control" placeholder="Debilidad" required>
+          <div ng-messages="vm.form.superheroForm.name.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Debilidad is required.</p>
+          </div>
+
+
+
+
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-default">{{vm.superhero._id ? 'Update' : 'Create'}}</button>
+        </div>
+        <div ng-show="vm.error" class="text-danger">
+          <strong ng-bind="vm.error"></strong>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>

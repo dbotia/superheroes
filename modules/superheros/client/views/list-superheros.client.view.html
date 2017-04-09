@@ -1,0 +1,25 @@
+<section>
+  <div class="page-header">
+    <h1>Superheros</h1>
+  </div>
+  <div class="list-group">
+    <a ng-repeat="superhero in vm.superheros"
+       ui-sref="superheros.view({ superheroId: superhero._id })"
+       class="list-group-item">
+      <medium class="list-group-item-text">
+        Posted on
+        <span ng-bind="superhero.created | date:'mediumDate'"></span>
+        by
+        <span ng-if="superhero.user" ng-bind="superhero.user.displayName"></span>
+        <span ng-if="!superhero.user">Deleted User</span>
+      </medium>
+      <h1 class="list-group-item-heading" ng-bind="superhero.name"></h1>
+       <h1 class="list-group-item-heading" ng-bind="superhero.superpower"></h1>
+        <h1 class="list-group-item-heading" ng-bind="superhero.debilidad"></h1>
+
+    </a>
+  </div>
+  <div class="alert alert-warning text-center" ng-if="vm.superheros.$resolved && !vm.superheros.length">
+    No Superheros yet, why don't you <a ui-sref="superheros.create">create one</a>?
+  </div>
+</section>
